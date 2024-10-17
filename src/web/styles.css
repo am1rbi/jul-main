@@ -186,6 +186,7 @@ p {
   font-size: 16px;
 }
 
+
 .continue-button {
   display: inline-flex;
   align-items: center;
@@ -237,7 +238,7 @@ p {
 /* New section styles */
 .new-way-section {
   background-color: white;
-  color: #333;
+  color: #333; /* Changed from #2a2a2a to #333 for better contrast */
   padding: 80px 20px;
   text-align: center;
   overflow: hidden;
@@ -246,8 +247,8 @@ p {
 .new-way-section h2 {
   font-size: 48px;
   margin-bottom: 30px;
-  opacity: 0;
-  transform: translateY(50px);
+  opacity: 1; /* Changed from 0 to 1 to make it visible by default */
+  transform: translateY(0); /* Reset the transform */
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
@@ -255,17 +256,19 @@ p {
   font-size: 24px;
   max-width: 800px;
   margin: 0 auto;
-  opacity: 0;
-  transform: translateY(50px);
+  opacity: 1; /* Changed from 0 to 1 to make it visible by default */
+  transform: translateY(0); /* Reset the transform */
   transition: opacity 0.5s ease, transform 0.5s ease;
   transition-delay: 0.2s;
 }
 
-.new-way-section.visible h2,
+/* .new-way-section.visible h2,
 .new-way-section.visible p {
   opacity: 1;
   transform: translateY(0);
-}
+  position: relative; 
+  z-index: 2; 
+} */
 
 .fade-to-gallery {
   height: 100px;

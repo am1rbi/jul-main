@@ -14,13 +14,25 @@
 
 .funnel-modal-content {
   background-color: white;
-  padding: 20px;
   border-radius: 15px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: relative;
-  max-width: 90%;
-  max-height: 90%;
+  width: 90%;
+  max-width: 500px;
+  height: 80vh;
+  max-height: 600px;
+  display: flex;
+  flex-direction: column;
+  color: #333;
+  overflow: hidden;
+}
+
+.funnel-modal-inner {
+  padding: 20px;
   overflow-y: auto;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .funnel-modal-close {
@@ -31,94 +43,318 @@
   background: none;
   border: none;
   cursor: pointer;
+  z-index: 3;
 }
 
-/* Add these styles to ensure the funnel content is visible inside the modal */
-.funnel-page {
-  background-color: white;
-  color: black;
-  padding: 20px;
-  border-radius: 15px;
-}
-
-.funnel-content {
-  max-width: 100%;
-}
-
-/* Adjust the progress bar for better visibility */
+/* Progress bar styles */
 .progress-container {
-  margin-bottom: 20px;
+  width: 100%;
+  padding: 20px 20px 0;
+  background-color: white;
+  position: sticky;
+  top: 0;
+  z-index: 2;
 }
 
 .progress-bar {
   background-color: #f0f0f0;
+  height: 4px;
+  width: 100%;
 }
 
 .progress {
   background-color: #000;
+  height: 100%;
 }
 
-/* Style adjustments for inputs and buttons */
-input[type="text"],
-input[type="tel"],
-input[type="number"],
-input[type="date"] {
+/* Funnel content styles */
+.funnel-page {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 16px;
 }
 
-.continue-button {
-  background-color: rgb(0, 0, 0);
-  color: white;
-  border: none;
-  /* padding: 10px 20px; */
-  /* border-radius: 20px; */
-  cursor: pointer;
-  font-size: 16px;
-  height: min-content;
-  width: min-content;
+.funnel-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
-.continue-button:hover {
-  background-color: rgb(0, 0, 0);
-}
-
-/* Ensure the back button is visible */
+/* Back button styles */
 .back-button {
   background-color: transparent;
   border: none;
   cursor: pointer;
   font-size: 20px;
   color: #000;
+  padding: 10px 0;
+  align-self: flex-start;
+  position: sticky;
+  top: 44px; /* Adjusted to account for progress bar */
+  z-index: 2;
+  margin-bottom: 10px;
 }
 
-/* Style adjustments for the budget slider */
+/* Text styles */
+.funnel-modal-content h1,
+.funnel-modal-content h2,
+.funnel-modal-content p,
+.funnel-modal-content label {
+  color: #333;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.funnel-modal-content h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.funnel-modal-content h2 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.funnel-modal-content p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Input styles */
+.funnel-modal-content input[type="text"],
+.funnel-modal-content input[type="tel"],
+.funnel-modal-content input[type="number"],
+.funnel-modal-content input[type="date"] {
+  width: 100%;
+  padding: 12px 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: right;
+  direction: rtl;
+  color: #333;
+}
+
+/* Placeholder styles */
+.funnel-modal-content input::placeholder,
+.funnel-modal-content input::-webkit-input-placeholder,
+.funnel-modal-content input::-moz-placeholder,
+.funnel-modal-content input:-ms-input-placeholder {
+  text-align: right;
+  direction: rtl;
+  color: #999;
+}
+
+/* Button styles */
+.continue-button,
+.home-button {
+  background-color: #000;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 10px 20px;
+  align-self: center;
+  margin-top: auto;
+  border-radius: 25px;
+  width: 100%;
+  max-width: 200px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  font-weight: 600;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.continue-button:hover,
+.home-button:hover {
+  background-color: #333;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+}
+
+/* Budget slider styles */
 .budget-slider {
   width: 100%;
   margin: 20px 0;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  background: #ddd;
+  outline: none;
+  opacity: 0.7;
+  transition: opacity .2s;
 }
 
-/* Style adjustments for the due date options */
+.budget-slider::-webkit-slider-thumb,
+.budget-slider::-moz-range-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #000;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+/* Due date options styles */
 .due-date-options {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
   margin-bottom: 20px;
+  width: 100%;
 }
 
 .due-date-options button {
-  padding: 10px;
+  padding: 12px;
   background-color: #f0f0f0;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 16px;
+  color: #333;
 }
 
 .due-date-options button.selected {
   background-color: #000;
   color: white;
+}
+
+/* Ensure consistent sizing for success page */
+.success-page {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.success-content {
+  width: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Adjust summary items for better fit */
+.summary {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.summary-label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.modal-button {
+  background-color: #000;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 12px 24px;
+  align-self: center;
+  margin-top: auto;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 250px;
+  transition: background-color 0.3s ease;
+  font-weight: 600;
+}
+
+.modal-button:hover {
+  background-color: #333;
+}
+
+/* Keep the existing styles for other buttons */
+.continue-button,
+.home-button {
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 10px 20px;
+  align-self: center;
+  margin-top: auto;
+  border-radius: 15px;
+  width: min-content;
+  height: min-content;
+  max-width: min-content;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  font-weight: 100;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.continue-button:hover,
+.home-button:hover {
+  background-color: #000000;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 1);
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  .funnel-modal-content {
+    width: 95%;
+    height: 90vh;
+  }
+
+  .funnel-modal-inner {
+    padding: 15px;
+  }
+
+  .funnel-modal-content h1 {
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+
+  .funnel-modal-content input[type="text"],
+  .funnel-modal-content input[type="tel"],
+  .funnel-modal-content input[type="number"],
+  .funnel-modal-content input[type="date"] {
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .continue-button,
+  .home-button {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+
+  .due-date-options {
+    grid-template-columns: 1fr;
+  }
+
+  .due-date-options button {
+    padding: 10px;
+  }
+
+  .summary-item {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 15px;
+  }
+
+  .summary-label {
+    margin-bottom: 5px;
+  }
+
+  .modal-button {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
 }
