@@ -1,0 +1,124 @@
+.funnel-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px) brightness(50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.funnel-modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  overflow-y: auto;
+}
+
+.funnel-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Add these styles to ensure the funnel content is visible inside the modal */
+.funnel-page {
+  background-color: white;
+  color: black;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.funnel-content {
+  max-width: 100%;
+}
+
+/* Adjust the progress bar for better visibility */
+.progress-container {
+  margin-bottom: 20px;
+}
+
+.progress-bar {
+  background-color: #f0f0f0;
+}
+
+.progress {
+  background-color: #000;
+}
+
+/* Style adjustments for inputs and buttons */
+input[type="text"],
+input[type="tel"],
+input[type="number"],
+input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.continue-button {
+  background-color: rgb(0, 0, 0);
+  color: white;
+  border: none;
+  /* padding: 10px 20px; */
+  /* border-radius: 20px; */
+  cursor: pointer;
+  font-size: 16px;
+  height: min-content;
+  width: min-content;
+}
+
+.continue-button:hover {
+  background-color: rgb(0, 0, 0);
+}
+
+/* Ensure the back button is visible */
+.back-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: #000;
+}
+
+/* Style adjustments for the budget slider */
+.budget-slider {
+  width: 100%;
+  margin: 20px 0;
+}
+
+/* Style adjustments for the due date options */
+.due-date-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.due-date-options button {
+  padding: 10px;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.due-date-options button.selected {
+  background-color: #000;
+  color: white;
+}
