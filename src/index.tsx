@@ -6,7 +6,7 @@ import "./web/styles.css";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <Router>
+    <Router basename="/jul-main">
       <App />
     </Router>
   </React.StrictMode>,

@@ -7,10 +7,12 @@ import AdminPage from './AdminPage';
 
 const App: React.FC = () => {
   return (
-    <Routes>
-      <Route path="/" element={<LandingPage />} />
-      <Route path="/admin" element={<AdminPage />} />
-    </Routes>
+    <FunnelProvider>
+      <Routes>
+        <Route path="/*" element={<LandingPage />} />
+        <Route path="/admin" element={<AdminPage />} />
+      </Routes>
+    </FunnelProvider>
   );
 };
 
