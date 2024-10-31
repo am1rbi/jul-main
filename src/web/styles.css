@@ -33,6 +33,7 @@ body {
 }
 
 /* Header styles */
+/* Updated header styles */
 header {
   display: flex;
   justify-content: space-between;
@@ -46,19 +47,20 @@ header {
   z-index: 1000;
   height: 80px;
   width: 100%;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 header.scrolled {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(30, 30, 30, 0.95);
   backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
 }
 
 .logo {
   font-size: 2rem;
   font-weight: 500;
   color: white;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 nav a {
@@ -66,84 +68,87 @@ nav a {
   color: white;
   text-decoration: none;
   margin-inline-start: 2rem;
-  transition: opacity 0.3s ease;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-  font-weight: 200;
+  transition: all 0.3s ease;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  font-weight: 300;
+  position: relative;
 }
 
-nav a:hover {
-  opacity: 0.8;
+nav a:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 50%;
+  background-color: white;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
 }
 
-/* Hero section styles */
+nav a:hover:after {
+  width: 100%;
+}
+
+/* Updated hero section styles */
 .hero-section {
-  min-height: 90vh;
+  min-height: 100vh;
   background-image: linear-gradient(to bottom,
-      rgba(0, 0, 0, 0.3),
-      rgba(0, 0, 0, 0.3)),
-    url('https://i.imghippo.com/files/7VDXI1729374602.webp');
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.4)),
+    url('https://i.imghippo.com/files/bEnI7628BLE.png');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   margin-top: 0;
-  padding-top: 70px;
+  padding-top: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
 }
 
-/* Content section */
+/* Updated content section */
 .content-section {
-  max-width: 700px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 2rem;
   border-radius: 10px;
-  /* Removed backdrop-filter and background-color */
 }
 
 .text-content {
   text-align: center;
 }
 
-/* Hero title with gold glow */
+/* Updated hero title */
 .main-title {
   color: white;
-  font-size: 4rem;
+  font-size: 4.5rem;
   margin-bottom: 1.5rem;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.2;
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5),
-    0 0 20px rgba(255, 215, 0, 0.3),
-    0 0 30px rgba(255, 215, 0, 0.2);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .text-content p {
   color: white;
-  font-size: 1.25rem;
-  line-height: 1.5;
+  font-size: 1.375rem;
+  line-height: 1.6;
   margin-bottom: 2rem;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  font-weight: 300;
 }
 
-/* CTA Button styles */
-.cta-buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 2rem;
-}
-
-/* CTA Button styles with gold glow */
+/* Updated CTA Button styles */
 .continue-button {
   background-color: white !important;
   color: black !important;
-  font-size: 1.125rem !important;
-  font-weight: 500 !important;
-  padding: 1rem 2rem !important;
-  border-radius: 8px !important;
+  font-size: 1.25rem !important;
+  font-weight: 400 !important;
+  padding: 1.25rem 2.5rem !important;
+  border-radius: 12px !important;
   width: auto !important;
-  min-width: 200px !important;
+  min-width: 220px !important;
   height: auto !important;
   transition: all 0.3s ease !important;
   border: none !important;
@@ -151,17 +156,39 @@ nav a:hover {
   text-align: center;
   white-space: nowrap;
   display: inline-block;
-  box-shadow: 0 4px 6px rgba(255, 215, 0, 0.3),
-    0 0 15px rgba(255, 215, 0, 0.2),
-    0 0 30px rgba(255, 215, 0, 0.1) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
 }
 
 .continue-button:hover {
   transform: translateY(-2px);
   background-color: #f8f8f8 !important;
-  box-shadow: 0 6px 12px rgba(255, 215, 0, 0.4),
-    0 0 20px rgba(255, 215, 0, 0.3),
-    0 0 40px rgba(255, 215, 0, 0.2) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  header {
+    padding: 15px 20px;
+  }
+
+  nav a {
+    margin-inline-start: 1rem;
+    font-size: 1rem;
+  }
+
+  .main-title {
+    font-size: 2.75rem;
+  }
+
+  .text-content p {
+    font-size: 1.125rem;
+  }
+
+  .continue-button {
+    padding: 1rem 2rem !important;
+    font-size: 1.125rem !important;
+    min-width: 200px !important;
+  }
 }
 
 /* Footer styles */
