@@ -56,7 +56,7 @@ header.scrolled {
 
 .logo {
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 500;
   color: white;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
@@ -77,16 +77,16 @@ nav a:hover {
 
 /* Hero section styles */
 .hero-section {
-  min-height: 100vh;
+  min-height: 90vh;
   background-image: linear-gradient(to bottom,
-      rgba(0, 0, 0, 0.4),
-      rgba(0, 0, 0, 0.6)),
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.3)),
     url('https://i.imghippo.com/files/7VDXI1729374602.webp');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   margin-top: 0;
-  padding-top: 80px;
+  padding-top: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -95,31 +95,33 @@ nav a:hover {
 
 /* Content section */
 .content-section {
-  max-width: 800px;
+  max-width: 700px;
   margin: 0 auto;
   padding: 2rem;
   border-radius: 10px;
-  backdrop-filter: blur(5px);
-  background-color: rgba(0, 0, 0, 0.2);
+  /* Removed backdrop-filter and background-color */
 }
 
 .text-content {
   text-align: center;
 }
 
+/* Hero title with gold glow */
 .main-title {
   color: white;
   font-size: 4rem;
   margin-bottom: 1.5rem;
-  font-weight: 700;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-weight: 500;
   line-height: 1.2;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5),
+    0 0 20px rgba(255, 215, 0, 0.3),
+    0 0 30px rgba(255, 215, 0, 0.2);
 }
 
 .text-content p {
   color: white;
   font-size: 1.25rem;
-  line-height: 1.6;
+  line-height: 1.5;
   margin-bottom: 2rem;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
@@ -132,6 +134,7 @@ nav a:hover {
   margin-top: 2rem;
 }
 
+/* CTA Button styles with gold glow */
 .continue-button {
   background-color: white !important;
   color: black !important;
@@ -143,18 +146,22 @@ nav a:hover {
   min-width: 200px !important;
   height: auto !important;
   transition: all 0.3s ease !important;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
   border: none !important;
   cursor: pointer;
   text-align: center;
   white-space: nowrap;
   display: inline-block;
+  box-shadow: 0 4px 6px rgba(255, 215, 0, 0.3),
+    0 0 15px rgba(255, 215, 0, 0.2),
+    0 0 30px rgba(255, 215, 0, 0.1) !important;
 }
 
 .continue-button:hover {
   transform: translateY(-2px);
   background-color: #f8f8f8 !important;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2) !important;
+  box-shadow: 0 6px 12px rgba(255, 215, 0, 0.4),
+    0 0 20px rgba(255, 215, 0, 0.3),
+    0 0 40px rgba(255, 215, 0, 0.2) !important;
 }
 
 /* Footer styles */
@@ -370,3 +377,240 @@ footer {
 .w-full {
   width: 100%;
 }
+
+/* Features section styles */
+#features {
+  scroll-margin-top: 80px;
+  background-color: white;
+  position: relative;
+  z-index: 1;
+  font-family: "Noto Sans Hebrew", sans-serif;
+  direction: rtl;
+  padding: 6rem 0;
+}
+
+/* Container styles */
+#features .container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Header styles */
+#features .header-row {
+  display: flex;
+  justify-content: center;
+  gap: 12rem;
+  margin-bottom: 5rem;
+}
+
+#features h2 {
+  font-size: 2rem;
+  font-weight: 200;
+  color: #333;
+  text-align: center;
+  min-width: 200px;
+}
+
+/* Features content styles */
+#features .features-content {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+#features .feature-pair {
+  display: flex;
+  justify-content: center;
+  gap: 12rem;
+  align-items: flex-start;
+}
+
+/* Feature item styles */
+#features .feature-item {
+  text-align: center;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#features h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #111;
+  margin: 0 0 1rem 0;
+  width: 100%;
+  text-align: center;
+}
+
+#features p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #666;
+  margin: 0;
+  text-align: center;
+}
+
+/* Icon styles */
+#features .icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  height: 48px;
+}
+
+#features .lucide {
+  width: 3rem;
+  height: 3rem;
+  stroke-width: 1.5;
+}
+
+#features .problem-icon {
+  color: #666;
+}
+
+#features .solution-icon {
+  color: #eab308;
+  /* yellow-400 */
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+
+  #features .header-row,
+  #features .feature-pair {
+    gap: 8rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  #features {
+    padding: 4rem 0;
+  }
+
+  #features .header-row,
+  #features .feature-pair {
+    gap: 6rem;
+  }
+
+  #features .feature-item {
+    width: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  #features {
+    padding: 3rem 0;
+  }
+
+  #features .container {
+    padding: 0 1rem;
+  }
+
+  #features .header-row {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 3rem;
+  }
+
+  #features .feature-pair {
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  #features h2 {
+    font-size: 1.5rem;
+    min-width: unset;
+  }
+
+  #features h3 {
+    font-size: 1.125rem;
+  }
+
+  #features p {
+    font-size: 0.875rem;
+  }
+
+  #features .features-content {
+    gap: 4rem;
+  }
+}
+
+/* About section styles */
+#about {
+  scroll-margin-top: 80px;
+  position: relative;
+  z-index: 1;
+  background-color: white;
+  padding: 4rem 0;
+}
+
+#about h2 {
+  color: #333;
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+#about h3 {
+  color: #333;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+#about p {
+  color: #666;
+  line-height: 1.8;
+}
+
+#about .stats-container {
+  background-color: #f8f8f8;
+  border-radius: 16px;
+  padding: 2rem;
+  margin-top: 3rem;
+}
+
+#about .stat-item {
+  text-align: center;
+}
+
+#about .stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+#about .stat-label {
+  color: #666;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  #about {
+    padding: 3rem 0;
+  }
+
+  #about h2 {
+    font-size: 2rem;
+  }
+
+  #about h3 {
+    font-size: 1.25rem;
+  }
+
+  #about p {
+    font-size: 0.875rem;
+  }
+
+  #about .stat-number {
+    font-size: 2rem;
+  }
+}
+
+/* Utility classes */

@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./styles.css";
-import FunnelModal, { FunnelModalProps } from "./FunnelModal";
+import FunnelModal from "./FunnelModal";
+import FeaturesSection from "./FeaturesSection";
+import AboutSection from "./AboutSection";
 
 const LandingPage: React.FC = () => {
   const [isFunnelModalOpen, setIsFunnelModalOpen] = useState(false);
@@ -24,6 +26,17 @@ const LandingPage: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const scrollToSection = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    sectionId: string,
+  ) => {
+    e.preventDefault();
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   const openFunnelModal = () => {
     setIsFunnelModalOpen(true);
   };
@@ -37,27 +50,37 @@ const LandingPage: React.FC = () => {
       <header>
         <div className="logo">Jul.</div>
         <nav>
-          <a href="#features">תכונות</a>
-          <a href="#about">אודות</a>
+          <a href="#features" onClick={(e) => scrollToSection(e, "features")}>
+            תכונות
+          </a>
+          <a href="#about" onClick={(e) => scrollToSection(e, "about")}>
+            אודות
+          </a>
         </nav>
       </header>
 
-      <main className="hero-section">
-        <div className="content-section">
-          <div className="text-content">
-            <h1 className="main-title">יש דרך חדשה לרכוש תכשיטים.</h1>
-            <p>
-              בכמה קליקים בלבד, והצוות שלנו כבר יתחיל לחפש עבורכם את התכשיט
-              המושלם, המותאם בדיוק לצרכים ולדרישות האישיות שלכם. כך תחסכו זמן
-              יקר, כסף ומאמץ - והכל ללא עלות וללא התחייבות.
-            </p>
-            <div className="cta-buttons">
-              <button className="continue-button" onClick={openFunnelModal}>
-                לחצו כאן כדי להתחיל
-              </button>
+      <main>
+        <section className="hero-section">
+          <div className="content-section">
+            <div className="text-content">
+              <h1 className="main-title">יש דרך חדשה לרכוש תכשיטים.</h1>
+              <p>
+                בין אם אתם יודעים בדיוק איזה תכשיט אתם רוצים או פשוט זקוקים
+                לעזרה בבחירה – אנחנו כאן בשבילכם. בכמה קליקים והצוות שלנו ימצא
+                לכם את התכשיט המושלם, מותאם לצרכים שלכם. תחסכו זמן, כסף ומאמץ –
+                והכל בחינם וללא התחייבות.
+              </p>
+              <div className="cta-buttons">
+                <button className="continue-button" onClick={openFunnelModal}>
+                  לחצו כאן כדי להתחיל
+                </button>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
+
+        <FeaturesSection />
+        <AboutSection />
       </main>
 
       {isFunnelModalOpen && (
